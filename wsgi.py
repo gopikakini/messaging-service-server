@@ -37,6 +37,10 @@ def login_session_controller():
         pass # logout user and remove access token from system
 
 
+@app.route("/")
+def home_controller():
+    return "Hello World"
+
 
 if __name__=="__main__":
     app.run()
