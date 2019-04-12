@@ -1,10 +1,10 @@
 import datetime
 from flask import Flask, request, jsonify
 from db import *
-application = Flask(__name__)
+app = Flask(__name__)
 
 
-@application.route("/message", methods=["GET","POST"])
+@app.route("/message", methods=["GET","POST"])
 def message_controller():
     
     token = request.get_json()["token"] if request.method == "POST" else request.args.get("token")
@@ -42,7 +42,7 @@ def message_controller():
         return jsonify(messages)
 
 
-@application.route("/login-session", methods=["POST", "DELETE"])
+@app.route("/login-session", methods=["POST", "DELETE"])
 def login_session_controller():
     if request.method == "POST":
         content = request.get_json()
@@ -63,7 +63,7 @@ def login_session_controller():
         return jsonify({"status":"success"})
 
 
-@application.route("/user", methods=["POST", "DELETE"])
+@app.route("/user", methods=["POST", "DELETE"])
 def user_controller():
     if request.method == "POST":
         content = request.get_json()
@@ -88,7 +88,7 @@ def user_controller():
         return jsonify({"status":"failure"})
 
 
-@application.route("/scope", methods=["POST"])
+@app.route("/scope", methods=["POST"])
 def scope_handler():
     content = request.get_json()
 
@@ -103,4 +103,4 @@ def scope_handler():
 
 
 if __name__=="__main__":
-    application.run()
+    app.run()
