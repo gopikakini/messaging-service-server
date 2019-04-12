@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 from db import *
 app = Flask(__name__)
 
-@app.rout("/")
+@app.route("/")
 def home:
     return "Messaging me?"
 
