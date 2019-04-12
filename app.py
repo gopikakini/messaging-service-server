@@ -4,7 +4,7 @@ from db import *
 app = Flask(__name__)
 
 @app.route("/")
-def home:
+def home():
     return "Messaging me?"
 
 @app.route("/message", methods=["GET","POST"])
