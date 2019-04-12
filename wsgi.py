@@ -1,7 +1,7 @@
 import datetime
 from flask import Flask, request, jsonify
 from db import *
-app = Flask(__name__)
+application = Flask(__name__)
 
 
 @app.route("/message", methods=["GET","POST"])
@@ -103,4 +103,4 @@ def scope_handler():
 
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0")
+    application.run()
